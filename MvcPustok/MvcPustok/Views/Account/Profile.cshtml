@@ -1,4 +1,4 @@
-﻿@model AppUser
+﻿@model ProfileViewModel
 @{
     ViewData["Title"] = "Porfolio";
 }
@@ -19,10 +19,9 @@
                                 <i class="fa fa-user"></i> Account
                                 Details
                             </a>
-                            <a href="login-register.html"><i class="fas fa-sign-out-alt"></i> Logout</a>
+                            <a asp-action="logout"><i class="fas fa-sign-out-alt"></i> Logout</a>
                         </div>
                     </div>
-
                     <div class="col-lg-9 col-12 mt--30 mt-lg--0">
                         <div class="tab-content" id="myaccountContent">
 
@@ -76,38 +75,7 @@
                                 <div class="myaccount-content">
                                     <h3>Account Details</h3>
                                     <div class="account-details-form">
-                                        <form action="#">
-                                            <div class="row">
-                                                <div class="col-lg-6 col-12  mb--30">
-                                                    <input value="@Model.UserName" id="user-name" placeholder="UserName" type="text">
-                                                </div>
-                                                <div class="col-lg-6 col-12  mb--30">
-                                                    <input value="@Model.FullName" id="first-name" placeholder="FullName" type="text">
-                                                </div>
-
-                                                <div class="col-12  mb--30">
-                                                    <input value="@Model.Email" id="email" placeholder="Email Address" type="email">
-                                                </div>
-                                                <div class="col-12  mb--30">
-                                                    <h4>Password change</h4>
-                                                </div>
-                                                <div class="col-12  mb--30">
-                                                    <input id="current-pwd" placeholder="Current Password"
-                                                           type="password">
-                                                </div>
-                                                <div class="col-lg-6 col-12  mb--30">
-                                                    <input id="new-pwd" placeholder="New Password"
-                                                           type="password">
-                                                </div>
-                                                <div class="col-lg-6 col-12  mb--30">
-                                                    <input id="confirm-pwd" placeholder="Confirm Password"
-                                                           type="password">
-                                                </div>
-                                                <div class="col-12">
-                                                    <button class="btn btn--primary">Save Changes</button>
-                                                </div>
-                                            </div>
-                                        </form>
+                                      @Html.Partial("_ProfileEditFormPartial",Model.ProfileEditView)
                                     </div>
                                 </div>
                             </div>

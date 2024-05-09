@@ -39,6 +39,9 @@ namespace MvcPustok.Controllers
             {
                 foreach (var item in result.Errors)
                 {
+                    if (item.Code == "DuplicateUserName")
+                        ModelState.AddModelError("UserName", "UserName is already taken");
+                    else
                     ModelState.AddModelError("", item.Description);
 
                 }
@@ -53,13 +56,14 @@ namespace MvcPustok.Controllers
         [HttpPost]
         public async Task<IActionResult> Login(MemberLoginViewModel member, string returnUrl)
         {
-            AppUser appUser = await _userManager.FindByEmailAsync(member.Email);
+            
+;            AppUser appUser = await _userManager.FindByEmailAsync(member.Email);
             if (appUser == null)
             {
                 ModelState.AddModelError("", "Email Or Password is not true");
                 return View();
             }
-            var result = await _signInManager.PasswordSignInAsync(appUser, member.Password, false, false);
+            var result = await _signInManager.PasswordSignInAsync(appUser, member.Password, false, true);
 
             if (!result.Succeeded)
             {
@@ -68,19 +72,34 @@ namespace MvcPustok.Controllers
             }
             return returnUrl != null ? Redirect(returnUrl) : RedirectToAction("index", "home");
         }
+        public async Task<IActionResult> Logout()
+        {
+            await _signInManager.SignOutAsync();
+            return RedirectToAction("index", "home");
+        }
         [Authorize]
-        public async Task<IActionResult> Portfolio()
+        public async Task<IActionResult> Profile()
         {
             if (!User.Identity.IsAuthenticated)
             {
                 return RedirectToAction("login", "account");
             }
-            var user = await _userManager.GetUserAsync(User);
+            AppUser? user = await _userManager.GetUserAsync(User);
             if (user == null)
             {
                 return RedirectToAction("login", "account");
             }
-            return View(user);
+            ProfileViewModel profileViewModel = new ProfileViewModel()
+            {
+                ProfileEditView = new ProfileEditViewModel()
+                {
+                    FullName=user.FullName,
+                    UserName=user.UserName,
+                    Email=user.Email
+                }
+
+            };
+            return View(profileViewModel);
         }
     }
 }
