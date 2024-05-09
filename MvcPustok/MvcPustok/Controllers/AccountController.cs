@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Security.Claims;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
@@ -28,6 +29,11 @@ namespace MvcPustok.Controllers
             {
                 return View();
             }
+            if (_userManager.Users.Any(x => x.NormalizedEmail == member.Email.ToUpper()))
+            {
+                ModelState.AddModelError("Email", "Email is already taken");
+                return View();
+            }
             AppUser appUser = new AppUser()
             {
                 UserName = member.UserName,
@@ -47,6 +53,7 @@ namespace MvcPustok.Controllers
                 }
                 return View();
             }
+            await _userManager.AddToRoleAsync(appUser, "member");
             return RedirectToAction("login", "account");
         }
         public IActionResult Login()
@@ -56,9 +63,10 @@ namespace MvcPustok.Controllers
         [HttpPost]
         public async Task<IActionResult> Login(MemberLoginViewModel member, string returnUrl)
         {
-            
+          
 ;            AppUser appUser = await _userManager.FindByEmailAsync(member.Email);
-            if (appUser == null)
+
+            if (appUser == null || !await _userManager.IsInRoleAsync(appUser,"member"))
             {
                 ModelState.AddModelError("", "Email Or Password is not true");
                 return View();
@@ -72,13 +80,14 @@ namespace MvcPustok.Controllers
             }
             return returnUrl != null ? Redirect(returnUrl) : RedirectToAction("index", "home");
         }
+        [Authorize(Roles ="member")]
         public async Task<IActionResult> Logout()
         {
             await _signInManager.SignOutAsync();
             return RedirectToAction("index", "home");
         }
-        [Authorize]
-        public async Task<IActionResult> Profile()
+        [Authorize(Roles = "member")]
+        public async Task<IActionResult> Profile(string tab="dashboard")
         {
             if (!User.Identity.IsAuthenticated)
             {
@@ -99,8 +108,61 @@ namespace MvcPustok.Controllers
                 }
 
             };
+            ViewBag.Tab = tab;
             return View(profileViewModel);
         }
+
+        [Authorize(Roles = "member")]
+        [HttpPost]
+        public async Task<IActionResult> Profile(ProfileEditViewModel profileEditView,string tab="profile")
+        {
+            ViewBag.Tab = tab;
+            ProfileViewModel profileViewModel = new ProfileViewModel();
+            profileViewModel.ProfileEditView = profileEditView;
+            if (!ModelState.IsValid) return View(profileViewModel);
+
+            AppUser? user = await _userManager.GetUserAsync(User);
+
+            user.UserName = profileEditView.UserName;
+            user.Email = profileEditView.Email;
+            user.FullName = profileEditView.FullName;
+
+            if (_userManager.Users.Any(x => x.Id != User.FindFirstValue(ClaimTypes.NameIdentifier) && x.NormalizedEmail == profileEditView.Email.ToUpper()))
+            {
+                ModelState.AddModelError("Email", "Email is already taken");
+                return View(profileViewModel);
+            }
+
+            if (profileEditView.NewPassword != null)
+            {
+                var passwordResult = await _userManager.ChangePasswordAsync(user, profileEditView.CurrentPassword, profileEditView.NewPassword);
+
+                if (!passwordResult.Succeeded)
+                {
+                    foreach (var err in passwordResult.Errors)
+                        ModelState.AddModelError("", err.Description);
+
+                    return View(profileViewModel);
+                }
+            }
+            var result = await _userManager.UpdateAsync(user);
+
+            if (!result.Succeeded)
+            {
+                foreach (var err in result.Errors)
+                {
+                    if (err.Code == "DuplicateUserName")
+                        ModelState.AddModelError("UserName", "UserName is already taken");
+                  
+                    else ModelState.AddModelError("", err.Description);
+                }
+                return View(profileViewModel);
+            }
+            await _signInManager.SignInAsync(user,false);
+            return View(profileViewModel);
+
+        }
+
     }
 }
 

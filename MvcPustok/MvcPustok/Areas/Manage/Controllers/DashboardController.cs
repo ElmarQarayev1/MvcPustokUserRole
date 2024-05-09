@@ -5,7 +5,7 @@ using MvcPustok.Data;
 
 namespace MvcPustok.Areas.Manage.Controllers
 {
-	[Authorize]
+    [Authorize(Roles = "admin,superadmin")]
     [Area("manage")]
     public class DashboardController:Controller
 	{

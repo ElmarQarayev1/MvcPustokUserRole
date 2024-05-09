@@ -221,7 +221,7 @@
                             <div class="main-navigation flex-lg-right">
                                 <div class="cart-widget">
                                     <div class="login-block">
-                                        @if (User.Identity.IsAuthenticated)
+                                        @if (User.Identity.IsAuthenticated && User.IsInRole("member"))
                                         {
                                             <a asp-action="profile" asp-controller="account" class="font-weight-bold">@User.Identity.Name</a> <br>
                                             <a asp-action="logout" asp-controller="account">Log out</a>
@@ -234,7 +234,8 @@
                                         }
                                     </div>
 
-                                    <div class="cart-block">s
+                                    <div class="cart-block">
+           
                                         <div class="cart-total">
                                             <span class="text-number">
                                                 1
@@ -899,6 +900,7 @@
         <script src="~/js/plugins.js"></script>
         <script src="~/js/ajax-mail.js"></script>
         <script src="~/js/custom.js"></script>
+        @RenderSection("scripts", required: false)
         <script src="~/js/main.js"></script>
 
 </body>

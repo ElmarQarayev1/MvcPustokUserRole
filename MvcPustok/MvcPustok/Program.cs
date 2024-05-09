@@ -43,6 +43,11 @@ builder.Services.ConfigureApplicationCookie(opt =>
             var uri = new Uri(context.RedirectUri);
             context.Response.Redirect("/manage/account/login" + uri.Query);
         }
+        else
+        {
+            var uri = new Uri(context.RedirectUri);
+            context.Response.Redirect("/account/login" + uri.Query);
+        }
 
         return Task.CompletedTask;
     };

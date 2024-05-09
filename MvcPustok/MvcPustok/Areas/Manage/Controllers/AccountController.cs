@@ -11,11 +11,13 @@ namespace MvcPustok.Areas.Manage.Controllers
 	{
         private readonly UserManager<AppUser> _userManager;
         private readonly SignInManager<AppUser> _signInManager;
+        private readonly RoleManager<IdentityRole> _roleManager;
 
-        public AccountController(UserManager<AppUser> userManager,SignInManager<AppUser> signInManager)
+        public AccountController(UserManager<AppUser> userManager,SignInManager<AppUser> signInManager,RoleManager<IdentityRole> roleManager)
 		{
             _userManager = userManager;
             _signInManager = signInManager;
+            _roleManager = roleManager;
         }
 
         public async Task<IActionResult> CreateAdmin()
@@ -25,10 +27,19 @@ namespace MvcPustok.Areas.Manage.Controllers
                 UserName = "admin"
             };
             var result = await _userManager.CreateAsync(appUser, "Admin123");
+            await _userManager.AddToRoleAsync(appUser, "superadmin");
 
             return Json(result);
         }
-     
+        public async Task<IActionResult> CreateRoles()
+        {
+            await _roleManager.CreateAsync(new IdentityRole("superadmin"));
+            await _roleManager.CreateAsync(new IdentityRole("admin"));
+            await _roleManager.CreateAsync(new IdentityRole("member"));
+
+            return Ok();
+        }
+
         public IActionResult Login()
         {
             return View();
@@ -38,13 +49,12 @@ namespace MvcPustok.Areas.Manage.Controllers
         {
             AppUser appUser = await _userManager.FindByNameAsync(admin.UserName);
 
-            if (appUser == null)
+            if (admin == null || (!await _userManager.IsInRoleAsync(appUser, "admin") && !await _userManager.IsInRoleAsync(appUser, "superadmin")))
             {
                 ModelState.AddModelError("", "UserName or Password is not true");
                 return View();
             }
-            var result = await _signInManager.PasswordSignInAsync(appUser, admin.Password, false, false);
-
+            var result = await _signInManager.PasswordSignInAsync(appUser, admin.Password, admin.RememberMe, false);
 
             if (!result.Succeeded)
             {

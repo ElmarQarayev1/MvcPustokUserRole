@@ -1,4 +1,6 @@
 ﻿using System;
+using Microsoft.AspNetCore.Authorization;
+using System.Data;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
@@ -9,6 +11,7 @@ using MvcPustok.Models;
 
 namespace MvcPustok.Areas.Manage.Controllers
 {
+    [Authorize(Roles = "admin,superadmin")]
     [Area("manage")]
     public class SliderController : Controller
     {
