@@ -26,6 +26,7 @@ namespace MvcPustok.Areas.Manage.Controllers
         {
             return View();
         }
+        [ValidateAntiForgeryToken]
         [HttpPost]
         public IActionResult Create(Genre genre)
         {
@@ -54,6 +55,7 @@ namespace MvcPustok.Areas.Manage.Controllers
 
             return View(genre);
         }
+        [ValidateAntiForgeryToken]
         [HttpPost]
         public IActionResult Edit(Genre genre)
         {

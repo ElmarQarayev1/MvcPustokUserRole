@@ -44,6 +44,7 @@ namespace MvcPustok.Areas.Manage.Controllers
         {
             return View();
         }
+        [ValidateAntiForgeryToken]
         [HttpPost]
         public async Task<IActionResult> Login(AdminLoginViewModel admin, string returnUrl)
         {

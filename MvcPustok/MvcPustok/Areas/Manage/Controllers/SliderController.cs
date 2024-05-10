@@ -37,6 +37,7 @@ namespace MvcPustok.Areas.Manage.Controllers
         {
             return View();
         }
+        [ValidateAntiForgeryToken]
         [HttpPost]
         public IActionResult Create(Slider slider)
         {
@@ -72,6 +73,7 @@ namespace MvcPustok.Areas.Manage.Controllers
 
             return View(slider);
         }
+        [ValidateAntiForgeryToken]
         [HttpPost]
         public IActionResult Edit(Slider slider)
         {

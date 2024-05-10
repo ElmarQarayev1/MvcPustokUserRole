@@ -58,6 +58,7 @@ namespace MvcPustok.Areas.Manage.Controllers
             ViewBag.Tags= _context.Tags.ToList();
             return View();
         }
+        [ValidateAntiForgeryToken]
         [HttpPost]
         public IActionResult Create(Book book)
         {

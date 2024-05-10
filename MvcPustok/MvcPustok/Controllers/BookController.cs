@@ -20,5 +20,15 @@ namespace MvcPustok.Controllers
 			Book book = _context.Books.Include(x => x.Genre).Include(x => x.BookImages.Where(x => x.Status == true)).FirstOrDefault(x => x.Id == id);
 			return PartialView("_BookModalPartial",book);
 		}
+		public IActionResult Details(int id)
+		{
+			Book? book = _context.Books.Include(x => x.BookImages).Include(x => x.Author)
+				.Include(x => x.Genre).Include(x => x.BookTags).ThenInclude(x=>x.Tag).FirstOrDefault(x => x.Id == id);
+			if (book == null)
+			{
+				return RedirectToAction("index", "home");
+			}
+			return View(book);
+		}
 	}
 }

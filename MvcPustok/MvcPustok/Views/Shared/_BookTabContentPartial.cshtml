@@ -41,7 +41,7 @@
                                 <a href="wishlist.html" class="single-btn">
                                     <i class="fas fa-heart"></i>
                                 </a>
-                                <a href="compare.html" class="single-btn">
+                                <a asp-action="details" asp-controller="book" asp-route-id="@item.Id" class="single-btn">
                                     <i class="fas fa-random"></i>
                                 </a>
                                 <a asp-controller="book" asp-action="getbookbyid" asp-route-id="@item.Id"

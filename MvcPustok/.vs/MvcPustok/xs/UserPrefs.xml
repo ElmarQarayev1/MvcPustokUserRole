@@ -1,12 +1,12 @@
 ﻿<Properties StartupConfiguration="{838B4C8E-E59C-4E24-B508-A0358A019A2B}|https">
-  <MultiItemStartupConfigurations />
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.ItemProperties.MvcPustok PreferredExecutionTarget="/System/Volumes/Preboot/Cryptexes/App/System/Applications/Safari.app" />
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
-  <MonoDevelop.Ide.Workbench ActiveDocument="MvcPustok/Controllers/AccountController.cs">
+  <MultiItemStartupConfigurations />
+  <MonoDevelop.Ide.ItemProperties.MvcPustok PreferredExecutionTarget="/System/Volumes/Preboot/Cryptexes/App/System/Applications/Safari.app" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="MvcPustok/Areas/Manage/ViewModels/AdminLoginViewModel.cs">
     <Files>
       <File FileName="MvcPustok/Program.cs" />
       <File FileName="MvcPustok/appsettings.json" />
@@ -76,12 +76,12 @@
       <File FileName="MvcPustok/Models/AppUser.cs" />
       <File FileName="MvcPustok/Migrations/20240506204803_AdminUserTableCreated.cs" />
       <File FileName="MvcPustok/Areas/Manage/Controllers/AccountController.cs" />
-      <File FileName="MvcPustok/Areas/Manage/ViewModels/AdminLoginViewModel.cs" />
+      <File FileName="MvcPustok/Areas/Manage/ViewModels/AdminLoginViewModel.cs" Line="21" Column="1" />
       <File FileName="MvcPustok/Areas/Manage/Views/Account/Login.cshtml" />
       <File FileName="MvcPustok/Views/Account/Register.cshtml" />
-      <File FileName="MvcPustok/Controllers/AccountController.cs" Line="25" Column="19" />
+      <File FileName="MvcPustok/Controllers/AccountController.cs" Line="24" Column="10" />
       <File FileName="MvcPustok/ViewModels/MemberRegisterViewModel.cs" />
-      <File FileName="MvcPustok/Views/Account/Login.cshtml" />
+      <File FileName="MvcPustok/Views/Account/Login.cshtml" Line="18" Column="10" />
       <File FileName="MvcPustok/ViewModels/MemberLoginViewModel.cs" />
       <File FileName="MvcPustok/ViewModels/ProfileViewModel.cs" />
       <File FileName="MvcPustok/ViewModels/ProfileEditViewModel.cs" />
@@ -94,8 +94,21 @@
         <State name="__root__">
           <Node name="MvcPustok" expanded="True">
             <Node name="MvcPustok" expanded="True">
-              <Node name="Controllers" expanded="True">
-                <Node name="AccountController.cs" selected="True" />
+              <Node name="Areas" expanded="True">
+                <Node name="Manage" expanded="True">
+                  <Node name="ViewModels" expanded="True">
+                    <Node name="AdminLoginViewModel.cs" selected="True" />
+                  </Node>
+                </Node>
+              </Node>
+              <Node name="Controllers" expanded="True" />
+              <Node name="Views" expanded="True">
+                <Node name="Account" expanded="True" />
+              </Node>
+              <Node name="wwwroot" expanded="True">
+                <Node name="manage" expanded="True">
+                  <Node name="assets" expanded="True" />
+                </Node>
               </Node>
             </Node>
           </Node>

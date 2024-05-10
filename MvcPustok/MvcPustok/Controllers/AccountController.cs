@@ -22,6 +22,7 @@ namespace MvcPustok.Controllers
         {
             return View();
         }
+        [ValidateAntiForgeryToken]
         [HttpPost]
         public async Task<IActionResult> Register(MemberRegisterViewModel member)
         {
@@ -60,6 +61,7 @@ namespace MvcPustok.Controllers
         {
             return View();
         }
+        [ValidateAntiForgeryToken]
         [HttpPost]
         public async Task<IActionResult> Login(MemberLoginViewModel member, string returnUrl)
         {
@@ -111,7 +113,7 @@ namespace MvcPustok.Controllers
             ViewBag.Tab = tab;
             return View(profileViewModel);
         }
-
+        [ValidateAntiForgeryToken]
         [Authorize(Roles = "member")]
         [HttpPost]
         public async Task<IActionResult> Profile(ProfileEditViewModel profileEditView,string tab="profile")

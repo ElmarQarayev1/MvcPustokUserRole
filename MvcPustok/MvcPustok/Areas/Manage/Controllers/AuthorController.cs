@@ -28,6 +28,7 @@ namespace MvcPustok.Areas.Manage.Controllers
         {
             return View();
         }
+        [ValidateAntiForgeryToken]
         [HttpPost]
         public IActionResult Create(Author author)
         {
