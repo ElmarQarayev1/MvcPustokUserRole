@@ -1,4 +1,6 @@
 ﻿using System;
+using Microsoft.AspNetCore.Authorization;
+using System.Data;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using MvcPustok.Areas.Manage.ViewModels;
@@ -65,7 +67,13 @@ namespace MvcPustok.Areas.Manage.Controllers
 
             return returnUrl != null ? Redirect(returnUrl) : RedirectToAction("index", "dashboard");
         }
-       
+        [Authorize(Roles = "admin,superadmin")]
+        public async Task<IActionResult> Logout()
+        {
+            await _signInManager.SignOutAsync();
+            return RedirectToAction("login", "account");
+        }
+
     }
 }
 
