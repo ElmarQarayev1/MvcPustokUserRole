@@ -164,6 +164,10 @@ namespace MvcPustok.Controllers
             return View(profileViewModel);
 
         }
+        public IActionResult Wishlist()
+        {
+            return View();
+        }
 
     }
 }

@@ -1,5 +1,6 @@
 ﻿@model ProfileEditViewModel
-<form method="post">
+
+<form method="post" class="www">
     <div class="row">
         <div class="col-lg-6 col-12  mb--30">
             <input asp-for=FullName id="first-name" placeholder="Full Name" type="text">
@@ -14,7 +15,6 @@
         <div class="col-12  mb--30">
             <input asp-for=Email id="email" placeholder="Email Address" type="email">
             <span class="text-danger" asp-validation-for="Email"></span>
-
         </div>
         <div class="col-12  mb--30">
             <h4>Password change</h4>
@@ -23,23 +23,34 @@
             <input asp-for=CurrentPassword id="current-pwd" placeholder="Current Password"
                    type="password">
             <span class="text-danger" asp-validation-for="CurrentPassword"></span>
-
         </div>
         <div class="col-lg-6 col-12  mb--30">
             <input asp-for=NewPassword id="new-pwd" placeholder="New Password"
                    type="password">
             <span class="text-danger" asp-validation-for="NewPassword"></span>
-
         </div>
         <div class="col-lg-6 col-12  mb--30">
             <input asp-for=ConfirmNewPassword id="confirm-pwd" placeholder="Confirm Password"
                    type="password">
             <span class="text-danger" asp-validation-for="ConfirmNewPassword"></span>
-
         </div>
         <div class="text-danger" asp-validation-summary="ModelOnly"></div>
         <div class="col-12">
-            <button type="submit" class="btn btn--primary">Save Changes</button>
+            <button type="submit" class="btn btn--primary savechg">Save Changes</button>
         </div>
     </div>
 </form>
+<div id="toaster" class="toaster" style="display:none;">
+    <span>Her şey degistirildi!</span>
+</div>
+<script>
+    document.querySelector(".www").addEventListener("submit", function (e) {
+       
+        let toast = document.getElementById("toaster");
+        toast.style.display = "block";
+       
+    })
+</script>
+
+
+

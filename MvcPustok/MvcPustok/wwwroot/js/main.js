@@ -16,7 +16,14 @@
 
 //document.querySelector(".book-modal").addEventListener("click", function (e) {
 //    e.preventDefault();
-//    alert("slaa");
+//    alert("salam");
     //$("#quickModal").modal('show');
 
 //})
+
+
+   
+   
+
+
+
