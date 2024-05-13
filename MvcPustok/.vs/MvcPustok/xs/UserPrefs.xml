@@ -1,24 +1,23 @@
 ﻿<Properties StartupConfiguration="{838B4C8E-E59C-4E24-B508-A0358A019A2B}|https">
-  <MonoDevelop.Ide.ItemProperties.MvcPustok PreferredExecutionTarget="/System/Volumes/Preboot/Cryptexes/App/System/Applications/Safari.app" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
   <MultiItemStartupConfigurations />
-  <MonoDevelop.Ide.Workbench ActiveDocument="MvcPustok/Controllers/AccountController.cs">
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.Workbench ActiveDocument="MvcPustok/Controllers/HomeController.cs">
     <Files>
       <File FileName="MvcPustok/Program.cs" />
       <File FileName="MvcPustok/appsettings.json" />
       <File FileName="MvcPustok/Views/_ViewImports.cshtml" />
       <File FileName="MvcPustok/Views/_ViewStart.cshtml" />
       <File FileName="MvcPustok/Views/Home/Index.cshtml" />
-      <File FileName="MvcPustok/Controllers/HomeController.cs" />
+      <File FileName="MvcPustok/Controllers/HomeController.cs" Line="60" Column="15" />
       <File FileName="MvcPustok/Properties/launchSettings.json" />
       <File FileName="MvcPustok/Models/BookTags.cs" />
       <File FileName="MvcPustok/Models/BookImages.cs" />
       <File FileName="MvcPustok/Data/AppDbContext.cs" />
-      <File FileName="MvcPustok/Views/Shared/_Layout.cshtml" Line="20" Column="1" />
+      <File FileName="MvcPustok/Views/Shared/_Layout.cshtml" />
       <File FileName="MvcPustok/Models/Author.cs" />
       <File FileName="MvcPustok/Models/Book.cs" />
       <File FileName="MvcPustok/Models/Genre.cs" />
@@ -27,11 +26,11 @@
       <File FileName="MvcPustok/Models/BaseEntity.cs" />
       <File FileName="MvcPustok/ViewModels/HomeViewModel.cs" />
       <File FileName="MvcPustok/Models/Feature.cs" />
-      <File FileName="MvcPustok/Views/Shared/_BookTabContentPartial.cshtml" Line="1" Column="1" />
-      <File FileName="MvcPustok/wwwroot/js/main.js" Line="22" Column="5" />
-      <File FileName="MvcPustok/Controllers/BookController.cs" />
-      <File FileName="MvcPustok/Views/Shared/_Layout.cshtml.css" Line="30" Column="36" />
-      <File FileName="MvcPustok/Services/LayoutService.cs" Line="27" Column="1" />
+      <File FileName="MvcPustok/Views/Shared/_BookTabContentPartial.cshtml" Line="56" Column="46" />
+      <File FileName="MvcPustok/wwwroot/js/main.js" />
+      <File FileName="MvcPustok/Controllers/BookController.cs" Line="1" Column="1" />
+      <File FileName="MvcPustok/Views/Shared/_Layout.cshtml.css" />
+      <File FileName="MvcPustok/Services/LayoutService.cs" />
       <File FileName="MvcPustok/Models/Setting.cs" />
       <File FileName="MvcPustok/wwwroot/js/ajax-mail.js" />
       <File FileName="MvcPustok/Areas/Manage/Controllers/DashboardController.cs" />
@@ -67,8 +66,8 @@
       <File FileName="MvcPustok/Areas/Manage/Views/Book/Edit.cshtml" />
       <File FileName="MvcPustok/Areas/Manage/Views/Book/Create.cshtml" />
       <File FileName="MvcPustok/Migrations/20240502034840_ChangeSomething.cs" />
-      <File FileName="MvcPustok/wwwroot/css/main.css" Line="60" Column="1" />
-      <File FileName="MvcPustok/wwwroot/css/plugins.css" Line="1" Column="1" />
+      <File FileName="MvcPustok/wwwroot/css/main.css" />
+      <File FileName="MvcPustok/wwwroot/css/plugins.css" />
       <File FileName="MvcPustok/wwwroot/manage/assets/css/sb-admin-2.min.css" />
       <File FileName="MvcPustok/wwwroot/manage/assets/css/sb-admin-2.css" />
       <File FileName="MvcPustok/wwwroot/manage/assets/css/style.css" />
@@ -79,18 +78,22 @@
       <File FileName="MvcPustok/Areas/Manage/ViewModels/AdminLoginViewModel.cs" />
       <File FileName="MvcPustok/Areas/Manage/Views/Account/Login.cshtml" />
       <File FileName="MvcPustok/Views/Account/Register.cshtml" />
-      <File FileName="MvcPustok/Controllers/AccountController.cs" Line="169" Column="2" />
+      <File FileName="MvcPustok/Controllers/AccountController.cs" Line="22" Column="10" />
       <File FileName="MvcPustok/ViewModels/MemberRegisterViewModel.cs" />
-      <File FileName="MvcPustok/Views/Account/Login.cshtml" Line="38" Column="21" />
-      <File FileName="MvcPustok/ViewModels/MemberLoginViewModel.cs" />
+      <File FileName="MvcPustok/Views/Account/Login.cshtml" />
+      <File FileName="MvcPustok/ViewModels/MemberLoginViewModel.cs" Line="1" Column="1" />
       <File FileName="MvcPustok/ViewModels/ProfileViewModel.cs" />
       <File FileName="MvcPustok/ViewModels/ProfileEditViewModel.cs" />
-      <File FileName="MvcPustok/Views/Shared/_ProfileEditFormPartial.cshtml" Line="2" Column="1" />
+      <File FileName="MvcPustok/Views/Shared/_ProfileEditFormPartial.cshtml" />
       <File FileName="MvcPustok/Views/Shared/_ValidationScriptPartials.cshtml" />
-      <File FileName="MvcPustok/Views/Account/Profile.cshtml" Line="26" Column="27" />
-      <File FileName="MvcPustok/wwwroot/js/plugins.js" Line="1" Column="1" />
-      <File FileName="MvcPustok/wwwroot/js/custom.js" Line="490" Column="4" />
-      <File FileName="MvcPustok/Views/Book/Details.cshtml" Line="28" Column="58" />
+      <File FileName="MvcPustok/Views/Account/Profile.cshtml" />
+      <File FileName="MvcPustok/wwwroot/js/plugins.js" />
+      <File FileName="MvcPustok/wwwroot/js/custom.js" />
+      <File FileName="MvcPustok/Views/Book/Details.cshtml" />
+      <File FileName="MvcPustok/ViewModels/BasketViewModel.cs" Line="17" Column="1" />
+      <File FileName="MvcPustok/Controllers/BasketController.cs" Line="46" Column="14" />
+      <File FileName="MvcPustok/ViewModels/BasketCookiesViewModel.cs" Line="11" Column="1" />
+      <File FileName="MvcPustok/Views/Basket/Wishlist.cshtml" Line="26" Column="54" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
@@ -98,12 +101,11 @@
           <Node name="MvcPustok" expanded="True">
             <Node name="MvcPustok">
               <Node name="Controllers" expanded="True">
-                <Node name="AccountController.cs" selected="True" />
+                <Node name="HomeController.cs" selected="True" />
               </Node>
-              <Node name="Services" expanded="True" />
               <Node name="ViewModels" expanded="True" />
               <Node name="Views" expanded="True">
-                <Node name="Account" expanded="True" />
+                <Node name="Basket" expanded="True" />
                 <Node name="Book" expanded="True" />
                 <Node name="Shared" expanded="True">
                   <Node name="_Layout.cshtml" expanded="True" />
@@ -121,4 +123,5 @@
       </Pad>
     </Pads>
   </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.ItemProperties.MvcPustok PreferredExecutionTarget="/System/Volumes/Preboot/Cryptexes/App/System/Applications/Safari.app" />
 </Properties>
